@@ -38,7 +38,19 @@ DDos dedection and mitigation system written in Go (Experimental)
 - Start the services: ``` ./service start ``` and to stop them ``` ./service stop ``` or kill processes via ```killall collectord && killall detectord ```
 
 
+### Scenarios
+- Host-based:
+  Install Phalanx on Front-End machine that distribute traffic to a few web servers of a constant targeted site by Applicative DDoS attacks (Reaching maximum Apache workers or php fpm processes) from bots or crawlers (Add to whitelist all customers and "clean" IPs) then let Phalanx ban via configured thresholds.
+  
+- Netflow:
+  Get Netflow traffic from router or a configured linux box (An easy way to export nf from linux machines is: https://github.com/aabc/ipt-netflow ) to the machine where Phalanx is configured (port 9995) then after configured the thresholds you can call an external trigger (trigger.sh) to push some remote configurations (ssh into box + shutdown|/bgp announce|/set ipt|/shutoff via hypervisor API) or just notify your Slack/Telegram channel about it.
+  
+<br><br>  
 
+If you have any cool idea/problem just open an issue and i'll look into it.<br>
+<br> <br> 
+### Known issues
+ - Netflow parse not works on all netflow v9 records (on ipt and cisco nf export should work without issues)
 
 
 
