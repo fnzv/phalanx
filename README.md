@@ -50,7 +50,7 @@ DDos dedection and mitigation system written in Go (Experimental)
 If you have any cool idea/problem just open an issue and i'll look into it.<br>
 <br> <br> 
 ### Known issues
- - Netflow parse not works on all netflow v9 records (on ipt and cisco nf export should work without issues)
+ - Netflow parse doesn't work on all netflow v9 records (tested on ipt and cisco nf export without issues)
 
 
 
